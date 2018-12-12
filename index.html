@@ -109,13 +109,6 @@
     var nav = new mapboxgl.NavigationControl();
     map.addControl(nav, 'top-left');
 
-    /*
-    function onClick(event) {
-      console.log('Mouse Clicked');
-      console.log(event.point);
-    }
-    map.on('click', onClick);*/
-
     map.on('mousemove', function(event) {
       if (map.loaded()) {
         var features = map.queryRenderedFeatures(event.point, { layers:['lots']
@@ -125,16 +118,12 @@
     });
 
     map.on('click', function(event) {
-      //console.log('Mouse Clicked');
-      //console.log(event.point);
-
+   
       var geometry = event.point;
       var parameters = {
         layers:['lots']
       }
       var features = map.queryRenderedFeatures(geometry, parameters);
-      //console.log(features);
-      //console.log(features.length + ' features');
       var lot = features[0];
       console.log(lot);
       
